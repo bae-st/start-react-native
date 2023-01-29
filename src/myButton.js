@@ -1,17 +1,29 @@
 import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
+import PropTypes from 'prop-types';
 
-const MyButton = () => {
+const MyButton = ({title, onPress, children}) => {
     return (
-        <TouchableOpacity onPress={() => alert('my button')}
-            // hitSlop={{ bottom: 100, top: 100, left: 100, right: 100}}
-            pressRetentionOffset={{ bottom: 100, top: 10, left: 10, right: 10 }}
-        >
-            <View style={{ backgroundColor: 'red', padding: 10 }}>
-                <Text style={{ fontSize: 20, color: 'white' }}>MyButton</Text>
+        <TouchableOpacity onPress={onPress}>
+            <View style={{ backgroundColor: 'red', padding: 10, margin: 10 }}>
+                <Text style={{ fontSize: 20, color: 'white' }}>
+                    {children || title}
+                    </Text>
             </View>
         </TouchableOpacity>  
     );
 };
+
+MyButton.defaultProps = {
+   title: 'default',
+   onPress: () => alert('default'),
+}
+
+MyButton.defaultProps = {
+    title: PropTypes.string,
+    onPress: PropTypes.func,
+    // title2: PropTypes.string.isRequired,
+}
+
 
 export default MyButton;

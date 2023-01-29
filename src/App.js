@@ -6,10 +6,11 @@ import MyButton from './myButton';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hi, there</Text>
-      <StatusBar style="auto" />
-      <Button title="Button" onPress={() => alert('click!')} />
-      <MyButton />  
+      {/* <MyButton title={123}/>  */}
+      <MyButton title='MyButton2' onPress={() => alert('2')}>
+        MyButton 3 
+      </MyButton>  
+      <MyButton>children</MyButton>
     </View>
   );
 }
