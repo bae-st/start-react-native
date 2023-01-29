@@ -1,16 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 import MyButton from './myButton';
 
 export default function App() {
+  const [addition, setAddition] = useState(0);
+  const [multiple, setMultiple] = useState(1);
+  
   return (
     <View style={styles.container}>
-      {/* <MyButton title={123}/>  */}
-      <MyButton title='MyButton2' onPress={() => alert('2')}>
-        MyButton 3 
-      </MyButton>  
-      <MyButton>children</MyButton>
+      <Text style={{ fontSize:20 }}>{addition}</Text>
+      <Text style={{ fontSize:20 }}>{multiple}</Text>
+      <MyButton title='addition' onPress={() => setAddition(addition + 2)}/>
+      <MyButton title='multiple' onPress={() => setMultiple(multiple * 2)}/>
     </View>
   );
 }
